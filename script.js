@@ -1,5 +1,7 @@
 const board = document.querySelector('#board')
 let currentPlayer = "X";
+
+let winningCombo = [0,0,0];
 let gameBoard = ["","","","","","","","",""]
 
 function creatBoard() {
@@ -64,3 +66,53 @@ function chekWin() {
     return false;
 }
 
+const resetBtn = document.querySelector('#resetBtn');
+resetBtn.addEventListener("click", resetGame);
+function resetGame() {
+    gameBoard = ["","","","","","","","",""];
+    currentPlayer = "X";
+    const cells = document.querySelector(".cell");
+    cells.forEach((cell) => {
+        cell.textContent = "";
+        cell.addEventListener("click", handleCellClick);
+    })
+    document.getElementById("message").textContent = "Tura: X"
+}
+
+resetGame();
+
+function drawWinningLine() {
+    const line = document.createElement("div")
+    line.classList.add(line);
+    
+    const start = winningCombo[0]
+    const end = winningCombo[2]
+
+    console.log(winningCombo[0], winningCombo[1], winningCombo[2])
+    console.log(winningCombo)
+    if (start === 0 && end ===2) {
+        line.style.top = "50px";
+        line.style.left = "0";
+    } else if (start === 3 && end === 5) {
+        line.style.top = "155"
+        line.style.left = "0"
+    } else if (start === 6 && end === 8) {
+        line.style.top = "260"
+        line.style.left = "0"
+    } else if (start === 0 && end === 6) {
+        line.style.width = "322px"
+        line.style.left = "0"
+    } else if (start === 6 && end === 8) {
+        line.style.top = "155"
+        line.style.left = "0"
+    } else if (start === 6 && end === 8) {
+        line.style.top = "155"
+        line.style.left = "0"
+    } else if (start === 6 && end === 8) {
+        line.style.top = "155"
+        line.style.left = "0"
+    } else if (start === 6 && end === 8) {
+        line.style.top = "155"
+        line.style.left = "0"
+    }
+}
