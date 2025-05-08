@@ -1,2 +1,0 @@
-# Pomoc-Biednym
-Pomoc Biednym
